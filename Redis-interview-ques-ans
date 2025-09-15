@@ -1,0 +1,188 @@
+1. Redis kya hai?
+Redis ek in-memory key-value data store hai jo high performance caching, session management, pub/sub messaging, aur real-time analytics ke liye use hota hai.
+
+2. Redis ka full form kya hai?
+Redis ka full form hai:
+REmote DIctionary Server.
+
+3. Redis kis tarah ka database hai?
+Redis ek NoSQL aur in-memory database hai, jo key-value pair data structure ke form me data store karta hai.
+
+4. Redis disk par data store karta hai ya memory me?
+Redis primarily RAM (in-memory) me data store karta hai, lekin persistence ke liye disk par snapshot ya append-only file bhi store kar sakta hai.
+
+5. Redis ka main use-case kya hai?
+Caching
+Session store
+Pub/Sub system
+Real-time leaderboard
+Message queue
+
+6. Redis kis programming language me likha gaya hai?
+Redis C language me likha gaya hai.
+
+7. Redis ka data model kya hai?
+Redis key-value store hai, jisme har key ek unique string hoti hai, aur value string, list, hash, set, sorted set, etc. ho sakti hai.
+
+8. Redis me kaunse data types support hote hain?
+Strings
+Lists
+Sets
+Sorted Sets (ZSets)
+Hashes
+Streams
+HyperLogLogs
+Bitmaps
+
+9. Redis open-source hai?
+Haan, Redis open-source hai aur BSD license ke under release hua hai.
+
+10. Redis ek database hai ya cache?
+Redis dono kaam karta hai – database bhi hai aur cache bhi.
+
+12. Redis me persistence ke kitne types hote hain?
+RDB (Redis Database Backup)
+AOF (Append-Only File)
+
+13. RDB kya hai?
+RDB Redis ka snapshot mechanism hai jo periodic basis par database ka point-in-time snapshot save karta hai.
+
+14. AOF kya hai?
+AOF ek persistence mechanism hai jo har write operation ko log file me append karta hai, taaki Redis restart hone par data restore kiya ja sake.
+
+15. Redis ke liye default port kaunsa hai?
+Redis ka default port 6379 hai.
+
+16. Redis ke advantages kya hain?
+High performance
+In-memory storage
+Multiple data structures
+Persistence
+Pub/Sub messaging
+
+17. Redis me maximum key size kya hai?
+Redis me ek key ka maximum size 512 MB ho sakta hai.
+
+18. Redis me ek string value ka maximum size kya hai?
+Ek string ka maximum size 512 MB hai.
+
+19. Redis single-threaded hai ya multi-threaded?
+Redis ka core execution single-threaded hai, lekin IO handling ke liye Redis multi-threaded ho sakta hai (Redis 6.0+).
+
+20. Redis transactions kya hai?
+Redis transactions ek set of commands ko atomic execution ke liye group karta hai.
+
+21. MULTI, EXEC, DISCARD commands ka kya kaam hai?
+MULTI: Transaction start karta hai
+EXEC: Commands execute karta hai
+DISCARD: Transaction cancel karta hai
+
+22. Redis replication kya hai?
+Replication ek process hai jisme ek Redis server (master) ka data ek ya zyada Redis servers (replica/slave) me copy hota hai.
+
+23. Redis pub/sub kya hai?
+Redis Pub/Sub ek messaging system hai jo publishers aur subscribers ke beech real-time messages deliver karta hai.
+
+24. Redis cluster kya hai?
+Redis cluster ek distributed setup hai jo multiple Redis nodes par data ko automatically partition karta hai.
+
+25. Redis sentinel kya hai?
+Sentinel ek tool hai jo Redis ke high availability ke liye use hota hai. Ye monitoring, notifications aur failover handle karta hai.
+
+26. Redis persistence disable kar sakte hain?
+Haan, agar sirf cache ke liye use kar rahe ho to persistence disable kar sakte hain.
+
+27. Redis key expire karne ka command kya hai?
+EXPIRE key seconds
+
+28. Redis me TTL kya hai?
+TTL (Time To Live) ek key ke expiry time ko define karta hai.
+
+29. Redis me default eviction policy kya hai?
+Default policy hai noeviction (agar memory full ho jaaye to new write reject hote hain).
+
+30. Redis me eviction policies ke types kya hain?
+noeviction
+allkeys-lru
+volatile-lru
+allkeys-random
+volatile-random
+volatile-ttl
+
+31. Redis ke commands case-sensitive hote hain?
+Nahi, Redis ke commands case-insensitive hote hain.
+
+32. Redis me pipeline kya hai?
+Pipeline ek feature hai jo multiple commands ko ek sath server par bhejne ki permission deta hai, jisse performance improve hota hai.
+
+33. Redis ke keys list karne ka command kya hai?
+KEYS *
+
+34. Redis ke keys delete karne ka command kya hai?
+DEL keyname
+
+35. Redis me sorted set kya hai?
+Sorted set ek data structure hai jo unique values ke sath unka score store karta hai, aur unhe score ke basis par sort karta hai.
+
+36. Redis streams kya hain?
+Streams ek data structure hai jo log-like message queue implement karta hai aur ordered message delivery ke liye use hota hai.
+
+37. Redis ke memory limit set karne ka command kya hai?
+CONFIG SET maxmemory <bytes>
+
+38. Redis ke logs kahan store hote hain?
+Default logs /var/log/redis/redis-server.log me store hote hain.
+
+39. Redis me persistence file ke naam kya hain?
+RDB file: dump.rdb
+AOF file: appendonly.aof
+
+40. Redis ke basic security mechanism kya hai?
+Password authentication (requirepass)
+Network-level security
+ACL (Access Control List)
+
+41. Redis ke liye best use cases kya hain?
+Caching
+Leaderboards
+Session management
+Message queues
+Real-time analytics
+
+42. Redis ke memory optimization tips kya hain?
+Keys chhote rakho
+TTL use karo
+Eviction policy set karo
+Data compression karo
+
+43. Redis ACL kya hai?
+ACL (Access Control List) ek security feature hai jo user-level access control provide karta hai.
+
+44. Redis geospatial index kya hai?
+Redis me geospatial commands hoti hain jo longitude/latitude ke basis par data store aur query karne ki permission deti hain.
+
+45. Redis ke Lua scripting feature kya hai?
+Redis me Lua scripts run kar sakte hain taaki multiple operations ek atomic step me ho sakein.
+
+46. Redis ke client libraries kaunse hain?
+Redis ke multiple languages ke liye clients hain:
+Java (Jedis, Lettuce), Python (redis-py), Node.js, Go, etc.
+
+47. Redis pub/sub ke real-time use-case kya hain?
+Live chat apps
+Notifications
+Real-time streaming data
+
+48. Redis cluster me data kaise distribute hota hai?
+Redis cluster data ko hash slots (0 to 16383) me distribute karta hai.
+
+49. Redis ke monitoring tools kaunse hain?
+INFO command
+MONITOR command
+Redis Sentinel
+Grafana, Prometheus
+
+50. Redis ka latest stable version kaise check karenge?
+Redis ka latest stable version official website
+ ya redis-server --version command se check kar sakte hain.
+
