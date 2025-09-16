@@ -186,3 +186,204 @@ Grafana, Prometheus
 Redis ka latest stable version official website
  ya redis-server --version command se check kar sakte hain.
 
+51. Redis ke “Lazy Deletion” ka concept kya hai?
+Lazy deletion me expired keys tabhi delete hoti hain jab unhe access kiya jata hai.
+
+52. Redis ke “Active Expiration” kya hai?
+Redis background me randomly keys scan karta hai aur expired keys ko proactively delete karta hai.
+
+53. Redis ke INFO command kya deta hai?
+INFO command Redis ke server, clients, memory, replication, persistence ka stats deta hai.
+
+54. Redis ke CLIENT LIST command ka use kya hai?
+Ye command connected clients ki list deta hai.
+
+55. Redis ke SLOWLOG kya hai?
+Slowlog slow commands ka execution time aur details record karta hai.
+
+56. Redis ke slowlog ka use kya hai?
+SLOWLOG GET command se slow queries track kar sakte hain performance tuning ke liye.
+
+57. Redis me hot keys issue kya hai?
+Jab ek hi key par bahut zyada traffic hota hai aur performance degrade hota hai.
+Solution: Key partitioning ya caching strategy change karo.
+
+59. Redis ke CONFIG command kaise use hota hai?
+Runtime configuration changes ke liye, jaise:
+CONFIG SET maxmemory 100mb.
+
+60. Redis ke RENAME command kaise use hota hai?
+Key rename karne ke liye: RENAME oldKey newKey.
+
+61. Redis ke WATCH command ka kya kaam hai?
+WATCH ek key par optimistic lock lagata hai. Agar key change hoti hai to transaction abort hota hai.
+
+62. Redis ke PERSIST command kya karta hai?
+Key ka expiry time remove kar deta hai.
+
+63. Redis ke MOVE command kya hai?
+Key ko ek database se dusre database me move karta hai.
+
+64. Redis ke MSET aur MGET commands ka kya use hai?
+MSET: Multiple keys ek saath set karta hai.
+MGET: Multiple keys ek saath get karta hai.
+
+65. Redis list aur set me kya difference hai?
+List → ordered collection, duplicates allowed
+Set → unordered collection, no duplicates
+
+66. Redis hash ka use kab karte ho?
+Key-value pairs ko ek object jaisa store karne ke liye (jaise User object: id, name, email).
+
+67. Redis me sabhi keys kaise dekhte ho?
+KEYS * (prod me avoid karein, instead SCAN use karein).
+
+68. Redis को install करने के लिए कौन-सी command use होती है (Linux)?
+Ans:
+sudo apt install redis-server
+
+69. Redis service को start/stop कैसे करते हैं?
+Ans:
+Start: sudo service redis-server start
+Stop: sudo service redis-server stop
+
+70. Redis में किसी key की value कैसे set करते हैं?
+Ans:
+SET mykey "Hello"
+
+71. Redis से किसी key की value कैसे get करते हैं?
+Ans:
+GET mykey
+
+72. Redis में किसी key को delete करने का command क्या है?
+Ans:
+DEL mykey
+
+73. Redis में किसी key का existence check करने का command क्या है?
+Ans:
+EXISTS mykey
+
+74. Redis में किसी key का TTL check करने का command क्या है?
+Ans:
+TTL mykey
+
+75. Redis में किसी key का type check करने का command क्या है?
+Ans:
+TYPE mykey
+
+76. Redis में list कैसे create करते हैं?
+Ans:
+LPUSH mylist "A"
+LPUSH mylist "B"
+LRANGE mylist 0 -1
+
+77. Redis में set कैसे create करते हैं?
+Ans:
+SADD myset "A"
+SADD myset "B"
+SMEMBERS myset
+
+78. Redis में hash कैसे create करते हैं?
+Ans:
+HSET user:1 name "Amit" age "25"
+HGETALL user:1
+
+79. Redis में sorted set कैसे create करते हैं?
+Ans:
+ZADD scores 100 "Alice"
+ZADD scores 200 "Bob"
+ZRANGE scores 0 -1 WITHSCORES
+
+80. Redis में सभी keys देखने का command क्या है?
+Ans:
+KEYS *
+
+81. Redis में किसी key को rename करने का command क्या है?
+Ans:
+RENAME oldKey newKey
+
+82. Redis में किसी key की length check कैसे करते हैं?
+Ans:
+STRLEN mykey
+
+83. Redis में किसी key को expire कैसे करते हैं?
+Ans:
+EXPIRE mykey 60   # 60 seconds
+
+84. Redis में किसी key को permanent कैसे बनाते हैं (expire हटाना)?
+Ans:
+PERSIST mykey
+
+85. Redis में किसी key का exact expiry time check करने का command क्या है?
+Ans:
+PEXPIRETIME mykey
+
+86. Redis में किसी key को increment/decrement कैसे करते हैं?
+Ans:
+INCR counter
+DECR counter
+
+87. Redis में किसी string key में value append कैसे करते हैं?
+Ans:
+APPEND mykey "World"
+
+88. Redis में किसी key को multiple keys के साथ set करने का तरीका क्या है?
+Ans:
+MSET key1 "A" key2 "B" key3 "C"
+
+89. Redis में किसी multiple keys की values get कैसे करते हैं?
+Ans:
+MGET key1 key2 key3
+
+90. Redis में किसी list के last element को निकालने का command क्या है?
+Ans:
+RPOP mylist
+
+91. Redis में किसी list की length check करने का command क्या है?
+Ans:
+LLEN mylist
+
+92. Redis में set से कोई random element निकालने का command क्या है?
+Ans:
+SRANDMEMBER myset
+
+93. Redis में दो sets का intersection कैसे निकालते हैं?
+Ans:
+SINTER set1 set2
+
+94. Redis में दो sets का union कैसे निकालते हैं?
+Ans:
+SUNION set1 set2
+
+95. Redis में दो sets का difference कैसे निकालते हैं?
+Ans:
+SDIFF set1 set2
+
+96. Redis में hash से किसी specific field की value कैसे लेते हैं?
+Ans:
+HGET user:1 name
+
+97. Redis में किसी hash की सभी fields कैसे निकालते हैं?
+Ans:
+HKEYS user:1
+
+98. Redis में किसी hash की सभी values कैसे निकालते हैं?
+Ans:
+HVALS user:1
+
+99. Redis में sorted set का highest score वाला member कैसे निकालते हैं?
+Ans:
+ZREVRANGE scores 0 0 WITHSCORES
+
+100. Redis में किसी sorted set से score के आधार पर members निकालने का तरीका क्या है?
+Ans:
+ZRANGEBYSCORE scores 100 200
+
+101. Redis में किसी key को copy करने का तरीका क्या है?
+Ans:
+COPY sourceKey destinationKey
+
+102. Redis में किसी client connection की info देखने का command क्या है?
+Ans:
+CLIENT LIST
+
