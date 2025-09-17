@@ -70,7 +70,11 @@ Ek string ka maximum size 512 MB hai.
 Redis ka core execution single-threaded hai, lekin IO handling ke liye Redis multi-threaded ho sakta hai (Redis 6.0+).
 
 20. Redis transactions kya hai?
-Redis transactions ek set of commands ko atomic execution ke liye group karta hai.
+Redis transactions ek set of commands ko ek saath execute karne ka tarika hai:
+Ye commands MULTI se start hote hain aur EXEC par execute hote hain.
+Beech me diye gaye saare commands ek queue me store hote hain.
+Jab EXEC bola jata hai tab wo atomically run hote hain (yaani ek saath, bina beech me kisi aur operation ke).
+Agar DISCARD use karein to queued commands cancel ho jaate hain.
 
 21. MULTI, EXEC, DISCARD commands ka kya kaam hai?
 MULTI: Transaction start karta hai
