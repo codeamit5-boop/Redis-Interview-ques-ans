@@ -298,14 +298,6 @@ ZADD scores 100 "Alice"
 ZADD scores 200 "Bob"
 ZRANGE scores 0 -1 WITHSCORES
 
-80. Redis में सभी keys देखने का command क्या है?
-Ans:
-KEYS *
-
-81. Redis में किसी key को rename करने का command क्या है?
-Ans:
-RENAME oldKey newKey
-
 82. Redis में किसी key की length check कैसे करते हैं?
 Ans:
 STRLEN mykey
