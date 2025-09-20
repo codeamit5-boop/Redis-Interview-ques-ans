@@ -383,3 +383,45 @@ COPY sourceKey destinationKey
 Ans:
 CLIENT LIST
 
+
+Redis + Spring Boot Integration
+
+1. Spring Boot application me Redis ka use kyu karte hai?
+Answer:
+Caching ke liye (fast response ke liye)
+Session management
+Pub/Sub (messaging system)
+Data store as NoSQL DB
+Explanation: Redis memory-based DB hai, jo low latency aur high throughput deta hai. Spring Boot ke saath integrate karke performance boost hota hai.
+
+2. Spring Boot me Redis connect karne ke liye kaunsa starter dependency use hota hai?
+Answer:
+<dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-data-redis</artifactId>
+</dependency>
+Explanation: Ye dependency RedisTemplate, RedisConnectionFactory jaisi classes provide karti hai.
+
+3. RedisConnectionFactory kya hai?
+Answer:
+RedisConnectionFactory ek Spring Data Redis ka interface hai jo Redis server ke sath connection banane ka kaam karta hai.
+Ye RedisTemplate ya StringRedisTemplate ko Redis se connect karne ke liye use hota hai.
+👉 Iske implementation jaise LettuceConnectionFactory ya JedisConnectionFactory hote hain.
+
+5. RedisTemplate ka role kya hai?
+Answer:
+RedisTemplate ek helper class hai jo Redis operations (GET, SET, HASH, LIST, ZSET) perform karne ke liye APIs provide karti hai.
+Explanation: Ye abstraction provide karta hai taki aapko low-level Redis command likhne ki zarurat na ho.
+
+6. RedisTemplate me serialization ka kya role hai?
+Answer:
+Spring me jab hum RedisTemplate use karte hain, tab Serialization ka role bahut important hota hai, kyunki Redis ek byte array store karta hai — yani Redis me data raw bytes ke form me store hota hai.
+Aapka Java object directly Redis me store nahi ho sakta.
+👉 Isliye Serializer use hota hai jo object ko bytes me convert kare (serialize) aur jab data wapas chahiye ho to bytes se object banaye (deserialize).
+Example: StringRedisSerializer, JdkSerializationRedisSerializer, Jackson2JsonRedisSerializer.
+
+7. StringRedisTemplate aur RedisTemplate me difference kya hai?
+Answer:
+StringRedisTemplate → Keys aur values String ke form me store hoti hai.
+RedisTemplate → Generic template jo Object serialization support karta hai.
+
